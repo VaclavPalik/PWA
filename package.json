@@ -6,7 +6,10 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "3.2.6",
-    "jade": "*"
+    "express-session": "^1.12.1",
+    "jade": "*",
+    "node-persist": "0.0.8"
   }
 }
