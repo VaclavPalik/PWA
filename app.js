@@ -4,7 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
   , user = require('./routes/user')
   , createUser = require('./routes/createUser')
   , newTopic = require('./routes/newTopic')
@@ -44,7 +43,6 @@ if ('development' === app.get('env')) {
   app.get('/dev/clearData',devClearData.handler);
 }
 
-app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/viewtopic', viewtopic.handler);
 app.get('/listTopics', listTopics.handler);

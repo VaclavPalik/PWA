@@ -136,7 +136,7 @@
 				posts.push(Post.jsonize(post));
 			}
 			if(this.name===undefined){
-				console.log("undefioned name");
+				console.log("undefined name");
 			}
 			return {"name": this.name, posts: posts};
 		}

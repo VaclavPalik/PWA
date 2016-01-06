@@ -15,5 +15,5 @@
 				OK : "Sucessfully logged out."
 			}));
 		}
-	}
+	};
 }());

@@ -1,0 +1,157 @@
+<html>
+<head>
+<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.navbar-text{
+margin: 0 15;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" id="home-link">My simple AJAX forum</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<div id="module-login">
+					<form class="navbar-form navbar-right" id="module-login-form">
+						<div class="form-group">
+							<input type="text" placeholder="Name" class="form-control" id="module-login-form-name" name="username">
+						</div>
+						<div class="form-group">
+							<input type="password" placeholder="Password" class="form-control" id="module-login-form-password" name="password">
+						</div>
+						<button type="submit" class="btn btn-success">Login</button>
+					</form>
+				</div>
+				<div id="module-logout">
+					<form class="navbar-form navbar-right" id="module-logout-form">
+						<div class="form-group">
+							<p class="navbar-text pull-right">Logged in as <span id="module-logout-name"></span></p>
+						</div>
+						<button type="submit" class="btn btn-success">Logout</button>
+					</form>
+				</div>
+			</div>
+			<!--/.navbar-collapse -->
+		</div>
+	</nav>
+
+	<div style="margin-top: 80px">
+		<div id="error-box" class="alert alert-danger" role="alert"></div>
+		<div style="width: 80%; margin: 0 auto;">
+			<div id="module-listTopic">
+				
+				<form role="form" id="module-newTopic-form">
+					<h2>New topic:</h2>
+ 					<div class="form-group">
+  						<label for="module-newTopic-form-title">Title:</label>
+  						<input type="text" class="form-control" id="module-newTopic-form-title" name="title">
+					</div>
+   					<div class="form-group">
+  						<label for="module-newTopic-form-comment">Text:</label>
+  						<textarea class="form-control" rows="5" id="module-newTopic-form-comment" name="text"></textarea>
+					</div>
+  					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			
+			
+			
+				<!--<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li class="disabled"><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>-->
+
+				<div class="container">
+
+					<!-- Main component for a primary marketing message or call to action -->
+					<div class="col-sm-4">
+						<div class="list-group" id="module-listTopic-inner">
+							<a href="#" class="list-group-item active">
+								<h4 class="list-group-item-heading">Topic 1</h4>
+								<p class="list-group-item-text">Started by: Mamlas001 at
+									2015-05-05 10:10:10</p>
+								<p class="list-group-item-text">Last post by: Mamlas001 at
+									2015-05-05 10:10:10</p>
+							</a> <a href="#" class="list-group-item">
+								<h4 class="list-group-item-heading">Topic 2</h4>
+								<p class="list-group-item-text">Started by: Mamlas001 at
+									2015-05-05 10:10:10</p>
+								<p class="list-group-item-text">Last post by: Mamlas001 at
+									2015-05-05 10:10:10</p>
+							</a> <a href="#" class="list-group-item">
+								<h4 class="list-group-item-heading">List group item heading</h4>
+								<p class="list-group-item-text">Donec id elit non mi porta
+									gravida at eget metus. Maecenas sed diam eget risus varius
+									blandit.</p>
+							</a>
+						</div>
+					</div>
+
+				</div>
+				<!-- /container -->
+
+				<!--<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li class="disabled"><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>-->
+			</div>
+			<div id="module-viewtopic">
+				<h2 id="module-viewtopic-title">A title</h2>
+				<form role="form" id="module-listTopic-reply-form">
+   					<div class="form-group">
+  						<label for="module-listTopic-reply-text">Text:</label>
+  						<textarea class="form-control" rows="5" id="module-listTopic-reply-text" name="text"></textarea>
+					</div>
+  					<button type="submit" class="btn btn-default">Reply</button>
+				</form>
+				<div id="module-viewtopic-inner">
+					<div class="panel panel-default">
+  						<div class="panel-heading">
+    						<h3 class="panel-title">Mamlas001 at 2015-05-05 10:10:10</h3>
+  						</div>
+  						<div class="panel-body">
+    						Donec id elit non mi porta
+									gravida at eget metus. Maecenas sed diam eget risus varius
+									blandit.
+  						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	<script src="js/client.js"></script>
+	<script type="text/javascript">
+		//INIT
+		listTopic();
+		$('#module-logout').hide();
+		$('#error-box').hide();
+		$('#module-listTopic-reply-form').hide();
+		$('#module-newTopic-form').hide();
+		$('#home-link').on('click', (evt)=>{
+			evt.preventDefault();
+			listTopic();
+		});
+	</script>
+</body>
+</html>
