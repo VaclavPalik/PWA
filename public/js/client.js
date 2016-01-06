@@ -67,8 +67,8 @@ let listTopic;
 		$.getJSON("/listTopics", (data, textStatus, req) => {
 			$("#module-listTopic-inner").empty();
 			for(let topic of data){
-				$("#module-listTopic-inner").append('<a href="#" class="list-group-item" id="module-topic-'+topic.name+'-link"><h4 class="list-group-item-heading">'+topic.name+'</h4><p class="list-group-item-text">Started by: '+topic.author.name+' at '+myDateFormat(topic.startedAt)+'</p><p class="list-group-item-text">Last post by: '+topic.lastPostBy.name+' at '+myDateFormat(topic.lastPostAt)+'</p></a>');
-				$('#module-topic-'+topic.name+'-link').on('click', (evt)=>{
+				$("#module-listTopic-inner").append('<a href="#" class="list-group-item" id="module-topic-'+$('<div/>').text(topic.name).html()+'-link"><h4 class="list-group-item-heading">'+topic.name+'</h4><p class="list-group-item-text">Started by: '+topic.author.name+' at '+myDateFormat(topic.startedAt)+'</p><p class="list-group-item-text">Last post by: '+topic.lastPostBy.name+' at '+myDateFormat(topic.lastPostAt)+'</p></a>');
+				$('#module-topic-'+$('<div/>').text(topic.name).html()+'-link').on('click', (evt)=>{
 					evt.preventDefault();
 					viewTopic(topic.name);
 				});
